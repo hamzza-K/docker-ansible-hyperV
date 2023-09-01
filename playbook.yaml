@@ -1,0 +1,16 @@
+---
+- name: Install Software on Windows VM
+  hosts: windows_vm
+  gather_facts: false
+  vars:
+    ansible_winrm_transport: ntlm
+  tasks:
+    - name: Install software
+      win_command: choco install neovim -y
+
+    - name: Install Git
+      win_command: choco install git -y
+
+    - name: Install Google Chrome
+      win_command: choco install googlechrome -y
+
